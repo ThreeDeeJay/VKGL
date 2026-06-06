@@ -42,7 +42,7 @@ jobs:
     - name: Clone repo and submodules
       run: >
         git
-        clone https://github.com/${{github.repository_owner}}/${{github.repository}}
+        clone https://github.com/${{github.repository}}
         "${{github.workspace}}"
         --branch ${{env.Branch}}
         --recurse-submodules
@@ -101,8 +101,12 @@ jobs:
     needs: Build
     steps:
 
-      - name: Clone repo and submodules
-        run: git clone https://${{github.repository_owner}}:${{github.token}}@github.com/${{github.repository}}.git "${{github.workspace}}" --branch ${{env.Branch}}
+      - name: Clone repo
+        run: >
+          git
+          clone https://github.com/${{github.repository}}
+          "${{github.workspace}}"
+          --branch ${{env.Branch}}
 
       - name: Get current date, commit hash and count
         run: |
