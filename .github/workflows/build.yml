@@ -42,7 +42,7 @@ jobs:
     - name: Clone repo and submodules
       run: >
         git
-        clone https://github.com/${{github.repository}}
+        clone https://git@github.com/${{github.repository}}.git
         "${{github.workspace}}"
         --branch ${{env.Branch}}
         --recurse-submodules
@@ -104,7 +104,7 @@ jobs:
       - name: Clone repo
         run: >
           git
-          clone https://github.com/${{github.repository}}
+          clone https://git@github.com/${{github.repository}}.git
           "${{github.workspace}}"
           --branch ${{env.Branch}}
 
